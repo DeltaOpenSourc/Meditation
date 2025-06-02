@@ -26,16 +26,12 @@
 
     .cards-container {
       display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 10px;
     }
 
     .card {
-      scroll-snap-align: start;
-      flex: 0 0 auto;
       background-color: #ffffff;
       border-radius: 8px;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
@@ -59,16 +55,14 @@
     }
 
     .card img {
-      height: 100px;
-      width: auto;
+      width: 80%;
+      height: 120px;
       object-fit: cover;
       border-radius: 6px;
-      margin-bottom: 15px;
+      margin: 0 auto 15px;
       background-color: #ddd;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
-}
+    }
 
     .card p {
       font-size: 13px;
@@ -84,15 +78,32 @@
       color: #ffffff;
       background-color: #268dee;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px; /* скругление */
       cursor: pointer;
+
+      /* Убираем outline и системный эффект нажатия */
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+
       transition: background-color 0.3s ease, transform 0.2s;
-      align-self: center;
     }
 
     .join:hover {
       background-color: #1b6ac9;
       transform: translateY(-2px);
+    }
+
+    .join:focus {
+      outline: none;
+    }
+
+    .join:active {
+      transform: scale(0.98);
+      background-color: #1a5bb8;
     }
 
     #meditation-container {
@@ -174,8 +185,8 @@
 
     lotos.onclick = () => Timer('Поза лотоса');
     birman.onclick = () => Timer('Поза бирманская');
-    shavasana.onclick = () => Timer('Поза шавасана');
     seisda.onclick = () => Timer('Поза сейдза');
+    shavasana.onclick = () => Timer('Поза шавасана');
 
     function Timer(pose_name) {
       const container = document.getElementById("meditation-container");
@@ -188,8 +199,8 @@
       title.textContent = pose_name;
       text.textContent = meditationText;
       container.style.display = "block";
-
     }
   </script>
 </body>
 </html>
+
