@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -28,14 +29,14 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px; /* расстояние между карточками */
+      gap: 20px;
     }
 
     .card {
       background-color: #ffffff;
       border-radius: 8px;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-      width: 280px; /* фиксированная ширина для равенства */
+      width: 280px;
       padding: 20px;
       box-sizing: border-box;
       display: flex;
@@ -60,13 +61,13 @@
       object-fit: cover;
       border-radius: 6px;
       margin-bottom: 15px;
-      background-color: #ddd; /* если нет изображения */
+      background-color: #ddd;
     }
 
     .card p {
-      font-size: 13px; /* уменьшенный размер */
+      font-size: 13px;
       color: #555555;
-      flex-grow: 1; /* чтобы описания занимали одинаковое пространство */
+      flex-grow: 1;
       margin-bottom: 20px;
       text-align: left;
     }
@@ -124,28 +125,28 @@
     <div class="cards-container">
       <div class="card" id="card_lotos">
         <h2>Поза лотоса</h2>
-        <img src="" alt="Поза лотоса" />
+        <img src="https://i.yapx.ru/ZQ4aV.png" alt="Поза лотоса" />
         <p>Нужно сидеть на коврике с прямой спиной, ноги скрещены, стопа правой ноги лежит на левом бедре, левой — на правом. Большой и указательный пальцы рук соединены.</p>
         <button class="join" id="join_lotos">Начать</button>
       </div>
 
       <div class="card" id="card_birman">
         <h2>Поза бирманская</h2>
-        <img src="" alt="Поза бирманская" />
+        <img src="https://i.yapx.ru/ZQ4Rz.png" alt="Поза бирманская" />
         <p>Нужно согнуть и скрестить ноги, стопы могут касаться пола.</p>
         <button class="join" id="join_birman">Начать</button>
       </div>
 
       <div class="card" id="card_seisda">
         <h2>Поза сейдза</h2>
-        <img src="" alt="Поза сейдза" />
+        <img src="https://i.yapx.ru/ZQ4VA.png" alt="Поза сейдза" />
         <p>Не обязательно скрещивать ноги, нужно встать на колени, затем сесть на пятки. Если будет неудобно, можно подложить подушку между бёдрами и голенями.</p>
         <button class="join" id="join_seisda">Начать</button>
       </div>
 
       <div class="card" id="card_shavasana">
         <h2>Поза шавасана</h2>
-        <img src="" alt="Поза шавасана" />
+        <img src="https://i.yapx.ru/ZQ4Y5.png" alt="Поза шавасана" />
         <p>Лёжа на спине, руки вытягивают вдоль тела, ладони раскрыты вверх, ноги на ширине плеч или как удобнее.</p>
         <button class="join" id="join_shavasana">Начать</button>
       </div>
@@ -180,13 +181,9 @@
 
       title.textContent = pose_name;
       text.textContent = meditationText;
-      timerDisplay.textContent = "10:00";
-
       container.style.display = "block";
 
-      // Здесь можно добавить логику таймера, если нужно
     }
   </script>
 </body>
 </html>
-
