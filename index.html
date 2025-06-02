@@ -26,9 +26,11 @@
 
     .cards-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: nowrap; /* отключаем перенос */
+      overflow-x: auto;  /* включаем горизонтальный скролл */
       gap: 20px;
+      scroll-snap-type: x mandatory; /* для приятной прокрутки */
+      padding-bottom: 10px;
     }
 
     .card {
@@ -42,6 +44,8 @@
       flex-direction: column;
       align-items: center;
       transition: transform 0.2s;
+      scroll-snap-align: start; /* фиксирует карточку при прокрутке */
+      flex: 0 0 auto; /* не даёт карточке сжиматься/растягиваться */
     }
 
     .card:hover {
@@ -78,32 +82,15 @@
       color: #ffffff;
       background-color: #268dee;
       border: none;
-      border-radius: 8px; /* скругление */
+      border-radius: 5px;
       cursor: pointer;
-
-      /* Убираем outline и системный эффект нажатия */
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-
       transition: background-color 0.3s ease, transform 0.2s;
+      align-self: center;
     }
 
     .join:hover {
       background-color: #1b6ac9;
       transform: translateY(-2px);
-    }
-
-    .join:focus {
-      outline: none;
-    }
-
-    .join:active {
-      transform: scale(0.98);
-      background-color: #1a5bb8;
     }
 
     #meditation-container {
@@ -203,4 +190,3 @@
   </script>
 </body>
 </html>
-
