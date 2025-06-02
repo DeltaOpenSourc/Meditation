@@ -131,28 +131,28 @@
         <h2>Поза лотоса</h2>
         <img src="https://i.yapx.ru/ZQ4aV.png" alt="Поза лотоса" />
         <p>Нужно сидеть на коврике с прямой спиной, ноги скрещены, стопа правой ноги лежит на левом бедре, левой — на правом. Большой и указательный пальцы рук соединены.</p>
-        <button class="join" id="join_lotos">Начать</button>
+        <button onclick="window.location.href='timer.html'">Начать медитацию</button>
       </div>
 
       <div class="card" id="card_birman">
         <h2>Поза бирманская</h2>
         <img src="https://i.yapx.ru/ZQ4Rz.png" alt="Поза бирманская" />
         <p>Нужно согнуть и скрестить ноги, стопы могут касаться пола.</p>
-        <button class="join" id="join_birman">Начать</button>
+        <button onclick="window.location.href='timer.html'">Начать медитацию</button>
       </div>
 
       <div class="card" id="card_seisda">
         <h2>Поза сейдза</h2>
         <img src="https://i.yapx.ru/ZQ4VA.png" alt="Поза сейдза" />
         <p>Не обязательно скрещивать ноги, нужно встать на колени, затем сесть на пятки. Если будет неудобно, можно подложить подушку между бёдрами и голенями.</p>
-        <button class="join" id="join_seisda">Начать</button>
+        <button onclick="window.location.href='timer.html'">Начать медитацию</button>
       </div>
 
       <div class="card" id="card_shavasana">
         <h2>Поза шавасана</h2>
         <img src="https://i.yapx.ru/ZQ4Y5.png" alt="Поза шавасана" />
         <p>Лёжа на спине, руки вытягивают вдоль тела, ладони раскрыты вверх, ноги на ширине плеч или как удобнее.</p>
-        <button class="join" id="join_shavasana">Начать</button>
+        <button onclick="window.location.href='timer.html'">Начать медитацию</button>
       </div>
     </div>
 
@@ -162,31 +162,5 @@
       <h3 id="timer"></h3>
     </div>
   </div>
-
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script>
-    const lotos = document.getElementById("join_lotos");
-    const birman = document.getElementById("join_birman");
-    const seisda = document.getElementById("join_seisda");
-    const shavasana = document.getElementById("join_shavasana");
-
-    lotos.onclick = () => Timer('Поза лотоса');
-    birman.onclick = () => Timer('Поза бирманская');
-    seisda.onclick = () => Timer('Поза сейдза');
-    shavasana.onclick = () => Timer('Поза шавасана');
-
-    function Timer(pose_name) {
-      const container = document.getElementById("meditation-container");
-      const title = document.getElementById("pose-title");
-      const text = document.getElementById("meditation-text");
-      const timerDisplay = document.getElementById("timer");
-
-      const meditationText = "Расслабься и почувствуй прилив сил";
-
-      title.textContent = pose_name;
-      text.textContent = meditationText;
-      container.style.display = "block";
-    }
-  </script>
 </body>
 </html>
