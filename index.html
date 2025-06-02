@@ -8,26 +8,39 @@
     body {
       background-color: rgb(73, 73, 73);
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     #main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 10px;
       text-align: center;
-      margin: 20px;
     }
 
     h1 {
-      color: #fff;
-      margin-bottom: 20px;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; /* расстояние между карточками */
     }
 
     .card {
-      display: inline-block;
-      border-radius: 5px;
-      padding: 10px;
-      margin: 20px;
-      width: 150px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-      background-color: #ffffff; 
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+      width: 280px; /* фиксированная ширина для равенства */
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       transition: transform 0.2s;
     }
 
@@ -35,88 +48,127 @@
       transform: scale(1.05);
     }
 
+    .card h2 {
+      margin: 0 0 15px 0;
+      font-size: 22px;
+      color: #333333;
+    }
+
     .card img {
       width: 100%;
-      height: auto;
-      border-radius: 5px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      background-color: #ddd; /* если нет изображения */
+    }
+
+    .card p {
+      font-size: 13px; /* уменьшенный размер */
+      color: #555555;
+      flex-grow: 1; /* чтобы описания занимали одинаковое пространство */
+      margin-bottom: 20px;
+      text-align: left;
     }
 
     .join {
-      margin-top: 10px;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 16px;
       color: #ffffff;
       background-color: #268dee;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s;
+      align-self: center;
     }
 
     .join:hover {
-      background-color: #ffffff;
+      background-color: #1b6ac9;
       transform: translateY(-2px);
     }
 
-    p {
-      color: #555555;
-      font-size: 14px;
+    #meditation-container {
+      max-width: 600px;
+      margin: 40px auto 0;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none;
+      text-align: center;
     }
 
+    #meditation-container h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    #meditation-container p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    #timer {
+      font-size: 24px;
+      color: #268dee;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div id="main">
     <h1>Обдумайте все что вам нужно и помедитируйте</h1>
 
-    <div class="card" id="card_lotos">
-      <h2>Поза лотоса</h2>
-      <img src="" alt="Поза лотоса" />
-      <p>Нужно сидеть на коврике с прямой спиной, ноги скрещены, стопа правой ноги лежит на левом бедре, левой — на правом.большой и указательный пальцы рук соединены</p>
-      <button class="join" id="join_lotos">Начать</button>
+    <div class="cards-container">
+      <div class="card" id="card_lotos">
+        <h2>Поза лотоса</h2>
+        <img src="" alt="Поза лотоса" />
+        <p>Нужно сидеть на коврике с прямой спиной, ноги скрещены, стопа правой ноги лежит на левом бедре, левой — на правом. Большой и указательный пальцы рук соединены.</p>
+        <button class="join" id="join_lotos">Начать</button>
+      </div>
+
+      <div class="card" id="card_birman">
+        <h2>Поза бирманская</h2>
+        <img src="" alt="Поза бирманская" />
+        <p>Нужно согнуть и скрестить ноги, стопы могут касаться пола.</p>
+        <button class="join" id="join_birman">Начать</button>
+      </div>
+
+      <div class="card" id="card_seisda">
+        <h2>Поза сейдза</h2>
+        <img src="" alt="Поза сейдза" />
+        <p>Не обязательно скрещивать ноги, нужно встать на колени, затем сесть на пятки. Если будет неудобно, можно подложить подушку между бёдрами и голенями.</p>
+        <button class="join" id="join_seisda">Начать</button>
+      </div>
+
+      <div class="card" id="card_shavasana">
+        <h2>Поза шавасана</h2>
+        <img src="" alt="Поза шавасана" />
+        <p>Лёжа на спине, руки вытягивают вдоль тела, ладони раскрыты вверх, ноги на ширине плеч или как удобнее.</p>
+        <button class="join" id="join_shavasana">Начать</button>
+      </div>
     </div>
 
-    <div class="card" id="card_birman">
-      <h2>Поза лотоса</h2>
-      <img src="" alt="Поза бирманская" />
-      <p>Нужно согнуть и скрестить ноги, стопы могут касаться пола.</p>
-      <button class="join" id="join_birman">Начать</button>
-    </div>
-
-    <div class="card" id="card_seisda">
-      <h2>Поза сейзда</h2>
-      <img src="" alt="Поза сейзда" />
-      <p>Не обязательно скрещивать ноги, нужно встать на колени, затем сесть на пятки. Если будет неудобно, можно подложить подушку между бёдрами и голенями.</p>
-      <button class="join" id="join_seisda">Начать</button>
-    </div>
-
-    <div class="card" id="card_shavasana">
-      <h2>Поза сейзда</h2>
-      <img src="" alt="Поза шавасана" />
-      <p>Лёжа на спине, руки вытягивают вдоль тела, ладони раскрыты вверх, ноги на ширине плеч или как удобнее.</p>
-      <button class="join" id="join_shavasana">Начать</button>
-    </div>
-
-    <div id="meditation-container" style="display:none;">
+    <div id="meditation-container">
       <h2 id="pose-title"></h2>
       <p id="meditation-text"></p>
       <h3 id="timer"></h3>
     </div>
-
+  </div>
 
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
-
-    let lotos = document.getElementById("join_lotos");
-    let birman = document.getElementById("join_birman");
-    let seisda = document.getElementById("join_seisda");
-    let shavasana = document.getElementById("join_shavasana");
-    
+    const lotos = document.getElementById("join_lotos");
+    const birman = document.getElementById("join_birman");
+    const seisda = document.getElementById("join_seisda");
+    const shavasana = document.getElementById("join_shavasana");
 
     lotos.onclick = () => Timer('Поза лотоса');
     birman.onclick = () => Timer('Поза бирманская');
     shavasana.onclick = () => Timer('Поза шавасана');
-    seisda.onclick = () => Timer('Поза сейзда');
+    seisda.onclick = () => Timer('Поза сейдза');
 
     function Timer(pose_name) {
       const container = document.getElementById("meditation-container");
@@ -124,18 +176,17 @@
       const text = document.getElementById("meditation-text");
       const timerDisplay = document.getElementById("timer");
 
-      meditationText = "Расслабься и почувствуй прилив сил";
-
+      const meditationText = "Расслабься и почувствуй прилив сил";
 
       title.textContent = pose_name;
       text.textContent = meditationText;
+      timerDisplay.textContent = "10:00";
 
-      let time = 600;
+      container.style.display = "block";
 
-      const minutes = Math.floor(time / 60);
-      const seconds = time % 60;
+      // Здесь можно добавить логику таймера, если нужно
     }
-
   </script>
 </body>
 </html>
+
