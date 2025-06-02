@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relax</title>
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+      font-family: Arial, sans-serif;
+    }
+
+    #main {
+      text-align: center;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      display: inline-block;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 20px;
+      width: 150px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff; 
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .join {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #57bcff;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .join:hover {
+      background-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    p {
+      color: #555555;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="main">
+    <h1>Обдумайте все что вам нужно и помедитируйте</h1>
+
+    <div class="card" id="card_lotos">
+      <h2>Поза лотоса</h2>
+      <img src="" alt="Поза лотоса" />
+      <p>Нужно сидеть на коврике с прямой спиной, ноги скрещены, стопа правой ноги лежит на левом бедре, левой — на правом.большой и указательный пальцы рук соединены</p>
+      <button class="join" id="join_lotos">Начать</button>
+    </div>
+
+    <div class="card" id="card_birman">
+      <h2>Поза лотоса</h2>
+      <img src="" alt="Поза бирманская" />
+      <p>Нужно согнуть и скрестить ноги, стопы могут касаться пола.</p>
+      <button class="join" id="join_birman">Начать</button>
+    </div>
+
+    <div class="card" id="card_seisda">
+      <h2>Поза сейзда</h2>
+      <img src="" alt="Поза сейзда" />
+      <p>Не обязательно скрещивать ноги, нужно встать на колени, затем сесть на пятки. Если будет неудобно, можно подложить подушку между бёдрами и голенями.</p>
+      <button class="join" id="join_seisda">Начать</button>
+    </div>
+
+    <div class="card" id="card_shavasana">
+      <h2>Поза сейзда</h2>
+      <img src="" alt="Поза шавасана" />
+      <p>Лёжа на спине, руки вытягивают вдоль тела, ладони раскрыты вверх, ноги на ширине плеч или как удобнее.</p>
+      <button class="join" id="join_shavasana">Начать</button>
+    </div>
+
+    <div id="meditation-container" style="display:none;">
+      <h2 id="pose-title"></h2>
+      <p id="meditation-text"></p>
+      <h3 id="timer"></h3>
+    </div>
+
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+
+    let lotos = document.getElementById("join_lotos");
+    let birman = document.getElementById("join_birman");
+    let seisda = document.getElementById("join_seisda");
+    let shavasana = document.getElementById("join_shavasana");
+    
+
+    lotos.onclick = () => Timer('Поза лотоса');
+    birman.onclick = () => Timer('Поза бирманская');
+    shavasana.onclick = () => Timer('Поза шавасана');
+    seisda.onclick = () => Timer('Поза сейзда');
+
+    function Timer(pose_name) {
+      const container = document.getElementById("meditation-container");
+      const title = document.getElementById("pose-title");
+      const text = document.getElementById("meditation-text");
+      const timerDisplay = document.getElementById("timer");
+
+      meditationText = "Расслабься и почувствуй прилив сил";
+
+
+      title.textContent = pose_name;
+      text.textContent = meditationText;
+
+      let time = 600;
+
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+    }
+
+  </script>
+</body>
+</html>
