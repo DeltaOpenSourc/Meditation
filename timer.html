@@ -113,10 +113,10 @@
     });
 
     function timer() {
-      sec++;
+      sec--;
       if (sec === 60) {
         sec = 0;
-        min++;
+        min--;
       }
       time.textContent = min + ":" + sec;
       timerId = setTimeout(timer, 1000);
